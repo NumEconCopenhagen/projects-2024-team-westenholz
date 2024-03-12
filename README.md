@@ -1,9 +1,8 @@
-# \[Group name\]
+# \[TEAM WESTENHOLZ\]
 
 **Group members:**
-- A
-- B
-- C
+- Lukas Riese (mxz303)
+- Magnus Juul (vsc133)
 
 This repository contains  
 1. Inaugural project. 
