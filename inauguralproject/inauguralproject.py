@@ -82,4 +82,17 @@ class ExchangeEconomyClass:
                    self.utility_B(x1B, x2B) >= self.utility_B(1 - self.par.w1A, 1 - self.par.w2A):
                     self.list_x1A.append(x1A)
                     self.list_x2A.append(x2A)
+
+    def question2(self):
+        self.price_list = []
+        self.error1 = []
+        self.error2 = []
+        
+        for var in range(76):
+            price = 0.5 + 2 * (var / 75)
+            eps1,eps2 = self.check_market_clearing(price)
+            
+            self.price_list.append(price)
+            self.error1.append(eps1)
+            self.error2.append(eps2)
     
