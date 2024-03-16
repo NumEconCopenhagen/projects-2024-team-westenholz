@@ -49,8 +49,8 @@ class ExchangeEconomyClass:
 
     def demand_B(self,p1):
         par = self.par
-        x1B = par.beta*(p1*par.w1A+par.w2A)/(p1)
-        x2B = (1-par.beta)*(p1*par.w1A+par.w2A)
+        x1B = par.beta*(p1*(1-par.w1A)+(1-par.w2A))/(p1)
+        x2B = (1-par.beta)*(p1*(1-par.w1A)+(1-par.w2A))
 
         return x1B,x2B
 
@@ -68,6 +68,7 @@ class ExchangeEconomyClass:
         return eps1,eps2
     
     def question1(self):
+
         self.list_x1A = []
         self.list_x2A = []
 
@@ -79,11 +80,13 @@ class ExchangeEconomyClass:
                 x2B = 1 - x2A
 
                 if self.utility_A(x1A, x2A) >= self.utility_A(self.par.w1A, self.par.w2A) and \
-                   self.utility_B(x1B, x2B) >= self.utility_B(1 - self.par.w1A, 1 - self.par.w2A):
+                   self.utility_B(x1B, x2B) >= self.utility_B((1 - self.par.w1A), (1 - self.par.w2A)):
                     self.list_x1A.append(x1A)
                     self.list_x2A.append(x2A)
 
     def question2(self):
+
+
         self.price_list = []
         self.error1 = []
         self.error2 = []
