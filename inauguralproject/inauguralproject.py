@@ -98,4 +98,21 @@ class ExchangeEconomyClass:
             self.price_list.append(price)
             self.error1.append(eps1)
             self.error2.append(eps2)
+
+    def question1(self):
+
+        self.list_x1A = []
+        self.list_x2A = []
+
+        for j in range(76):  # Including 75
+            x1A = j / 75
+            for i in range(76):  # Including 75
+                x2A = i / 75
+                x1B = 1 - x1A
+                x2B = 1 - x2A
+
+                if self.utility_A(x1A, x2A) >= self.utility_A(self.par.w1A, self.par.w2A) and \
+                   self.utility_B(x1B, x2B) >= self.utility_B((1 - self.par.w1A), (1 - self.par.w2A)):
+                    self.list_x1A.append(x1A)
+                    self.list_x2A.append(x2A)
     
