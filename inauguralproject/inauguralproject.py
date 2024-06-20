@@ -99,22 +99,42 @@ class ExchangeEconomyClass:
             self.error1.append(eps1)
             self.error2.append(eps2)
 
-    def question1(self):
+    def market_clearing_price(self,p1,maxitter=500):   #Want to find the the prise that makes the error's of the goods 0.
+        par = self.par
+        eps = 1e-8    
+        t = 0
+        while True:
+            eps1,eps2 = self.check_market_clearing(p1)  #Takes the market error for a given price.
+            if np.abs(eps1) < eps or t >= maxitter:  #See if the error is small enough to satisfy the equalibirum.
+                print(f'{t:3d}: p1 = {p1:12.8f} -> excess demand -> {eps1:14.8f}')
+                break
 
-        self.list_x1A = []
-        self.list_x2A = []
+            p1= p1 + 0.5*eps1/par.alpha #if not then opdate the price.
 
-        for j in range(76):  # Including 75
-            x1A = j / 75
-            for i in range(76):  # Including 75
-                x2A = i / 75
-                x1B = 1 - x1A
-                x2B = 1 - x2A
+            if t < 5 or t%25 == 0:
+                print(f'{t:3d}: p1 = {p1:12.8f} -> excess demand -> {eps1:14.8f}')  #Print first 5 guesses.
+            elif t == 5:
+                print('   ...')
+            t +=1  #Due the same again.
 
-                if self.utility_A(x1A, x2A) >= self.utility_A(self.par.w1A, self.par.w2A) and \
-                   self.utility_B(x1B, x2B) >= self.utility_B((1 - self.par.w1A), (1 - self.par.w2A)):
-                    self.list_x1A.append(x1A)
-                    self.list_x2A.append(x2A)
+        return p1
+        
+# the two market clearing prices are identical, allthough the first prinst steps, and the latter does not.
+
+    def market_clearing_price_Q8(self,p1,maxitter=500):
+        par = self.par
+        eps = 1e-8    
+        t = 0
+        while True:
+            eps1,eps2 = self.check_market_clearing(p1)
+            if np.abs(eps1) < eps or t >= maxitter:
+                break 
+            p1= p1 + 0.5*eps1/par.alpha
+
+            t +=1
+
+        return p1
+
 
     
     
