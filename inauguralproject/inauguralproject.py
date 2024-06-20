@@ -115,4 +115,6 @@ class ExchangeEconomyClass:
                    self.utility_B(x1B, x2B) >= self.utility_B((1 - self.par.w1A), (1 - self.par.w2A)):
                     self.list_x1A.append(x1A)
                     self.list_x2A.append(x2A)
+
+    
     
