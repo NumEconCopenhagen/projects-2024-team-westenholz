@@ -8,4 +8,4 @@ This repository contains
 4. Exam Project
 
 
-ChatGPT and co-pilot have been used in all 4 projects as a guideline.
+ChatGPT and co-pilot have been used in all 4 projects to help with python coding and providing descriptions for the code snippets.
